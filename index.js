@@ -16,7 +16,15 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 //Cargar configuracion de rutas
+const UserController = require("./routes/user")
+const SongController = require("./routes/song")
+const ArtistController = require("./routes/artist")
+const AlbumController = require("./routes/album")
 
+app.use("/api/user",UserController)
+app.use("/api/song",SongController)
+app.use("/api/artist",ArtistController)
+app.use("/api/album",AlbumController)
 //Ruta de prueba
 app.get("/prueba",(req,res)=>{
     return res.status(200).json({
