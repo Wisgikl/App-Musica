@@ -5,6 +5,6 @@ const router = express.Router();
 //Importar controlador
 const ArtistController = require("../controllers/artist")
 //Definir rutas
-router.get("/prueba-artist",ArtistController.prueba)
+router.get("/prueba",ArtistController.prueba)
 //Exportar router
 module.exports = router

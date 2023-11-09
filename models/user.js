@@ -19,11 +19,13 @@ const UserSchema = Schema({
     },
     password:{
         type:String,
-        required:true
+        required:true,
+        
     },
     role:{
         type:String,
-        role:"role_user"
+        role:"role_user",
+        
     },
     image:{
         type:String,
