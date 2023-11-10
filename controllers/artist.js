@@ -1,5 +1,7 @@
 //Importaciones
 const Artist = require("../models/artist");
+const Album = require("../models/album")
+const Song = require("../models/song")
 const mongoosePagination = require("mongoose-pagination");
 const fs = require("fs");
 const prueba = async (req, res) => {
@@ -93,16 +95,20 @@ const deletes = async (req, res) => {
   try {
     //Sacar id del artista
     const artistId = req.params.id;
-    //Hacer un find
+    //Hacer un find 
     const artistDelete = await Artist.findByIdAndDelete(artistId, {
       new: true,
     });
+    const albumDelete = await Album.find({artist:artistId}).remove()
+    const songDelete = await Song.find({album: albumDelete._id}).remove()
     if (!artistDelete)
       return res.status(404).json({ message: "No se encontro el artista" });
     //Devolver respuesta
     return res.status(200).json({
       message: "Artista eliminado",
       artist: artistDelete,
+      albumDelete,
+      songDelete
     });
   } catch (error) {
     return res.status(500).json({
