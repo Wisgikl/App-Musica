@@ -185,9 +185,6 @@ const update = async (req, res) => {
 };
 const upload = async (req, res) => {
   try {
-    //Configuracion de subida(multer)
-
-    //Recoger fichero de imagen
     if (!req.file)
       return res.status(404).json({
         message: "La peticion no incluye la imagen",
