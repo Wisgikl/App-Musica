@@ -10,8 +10,8 @@ const albumSchema = Schema({
         ref:"Artist"
     },
     year:{
-        type:Date,
-        default:Date.now()
+        type:Number,
+        required:true
     },
     description:{
         type:String

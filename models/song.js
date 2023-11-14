@@ -15,7 +15,7 @@ const songSchema = Schema({
     },
     file:{
         type:String,
-        required:true
+        default:"default.mp3"
     },
     duration:{
         type:String,
